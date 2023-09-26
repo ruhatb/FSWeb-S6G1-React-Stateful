@@ -28896,67 +28896,83 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = Sayac;
-var _react = _interopRequireDefault(require("react"));
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-/*
-SAYAÇ Talimatları
-
-Aşağıdaki kısa videoyu izleyin, UI ve Chrome Devtools'a dikkat edin:
-https://www.ergineer.com/assets/materials/a664dfe7-sayac.gif
-
-Bu Sayacı oluşturmak için kaç adet state dilimine ihtiyacınız var? Başlamadan önce biraz üzerine düşünün!
-
-Saf bir geliştirici 3 farklı state dilimi diyebilir:
-  - Sayıcı
-  - Metnin kırmızı mı yoksa mavi mi olduğu
-  - Metnin "çift" mi yoksa "tek" mi olduğu
-
-Ancak burada sadece bir state gereklidir: sayici!
-Diğer şeyler basitçe sayımın kendisinden türetilebilir.
-
-ADIM 0:
-  Aşağıdaki bileşeni inceleyerek ve state hookunu import ederek başlayın.
-
-ADIM 1:
-  State hookunu kullanara, bir 'sayici', 'setSayici' çifti oluşturun.
-  'sayici' state'inin ilk değeri 0 olarak yüklenmelidir.
-
-ADIM 2:
-  'stil' nesnesinde 'color' niteliği sabit olarak "royalblue" olarak belirlenmiştir.
-  Bunun yerine 'color' değerinin ne olması gerektiği, şu şekilde belirlenmelidir:
-  Eğer sayici çiftse "royalblue", değilse "crimson" olmalıdır.
-
-ADIM 3:
-  JSX'teki bazı sabit kodlanmış bilgileri, kıvrımlı parantezler ({}) içinde enterpolasyonlu ifadelerle değiştirmemiz gerekiyor.
-  Sabit olarak yazılmış "0" sayısını {sayici} değişkeni ile değiştirerek başlayın.
-  Sonra "çift" kelimesini şu kurala göre değiştirin: {eğer sayıcı çiftse, kelime `çift` değilse `tek` olacak}.
-
-ADIM 4:
-  Bu click handler'ın, "sayici" stateini artı bir yapacak şekilde programlamak için "setSayici"i kullanması gerekiyor.
-  Bu state değişiklikleri senkronize değil: güncellenen sayım, Sayac bileşeninin bir sonraki çalıştırmasında da gelir.
-  Sakın basitçe sayici++ yapmayın. Artı artı yasak! Bu tarz artırım bir sonraki çağırımda gelmez. Her zaman state'e yeni değer 
-  atamak için state güncelleyici kullanmalısınız.
-
-ADIM 5:
-  Bu click handler 'sayici' yi bir azaltmak için 'setSayici' ı kulanacak.
-  sayici-- SAKIN kullanmayın. Bu tarz kullanım bir sonraki çalıştırmada gelmez.
-
-ADIM 6:
-	Bu click handler 'sayici' yı sıfırlamak için 'setSayici' yi kullanacak.
-*/
-
+var _react = _interopRequireWildcard(require("react"));
+function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+function _readOnlyError(name) { throw new TypeError("\"" + name + "\" is read-only"); }
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
+function _iterableToArrayLimit(arr, i) { var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"]; if (null != _i) { var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1; try { if (_x = (_i = _i.call(arr)).next, 0 === i) { if (Object(_i) !== _i) return; _n = !1; } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0); } catch (err) { _d = !0, _e = err; } finally { try { if (!_n && null != _i.return && (_r = _i.return(), Object(_r) !== _r)) return; } finally { if (_d) throw _e; } } return _arr; } }
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; } /*
+                                                                      SAYAÇ Talimatları
+                                                                      
+                                                                      Aşağıdaki kısa videoyu izleyin, UI ve Chrome Devtools'a dikkat edin:
+                                                                      https://www.ergineer.com/assets/materials/a664dfe7-sayac.gif
+                                                                      
+                                                                      Bu Sayacı oluşturmak için kaç adet state dilimine ihtiyacınız var? Başlamadan önce biraz üzerine düşünün!
+                                                                      
+                                                                      Saf bir geliştirici 3 farklı state dilimi diyebilir:
+                                                                        - Sayıcı
+                                                                        - Metnin kırmızı mı yoksa mavi mi olduğu
+                                                                        - Metnin "çift" mi yoksa "tek" mi olduğu
+                                                                      
+                                                                      Ancak burada sadece bir state gereklidir: sayici!
+                                                                      Diğer şeyler basitçe sayımın kendisinden türetilebilir.
+                                                                      
+                                                                      ADIM 0:
+                                                                        Aşağıdaki bileşeni inceleyerek ve state hookunu import ederek başlayın.
+                                                                      
+                                                                      ADIM 1:
+                                                                        State hookunu kullanara, bir 'sayici', 'setSayici' çifti oluşturun.
+                                                                        'sayici' state'inin ilk değeri 0 olarak yüklenmelidir.
+                                                                      
+                                                                      ADIM 2:
+                                                                        'stil' nesnesinde 'color' niteliği sabit olarak "royalblue" olarak belirlenmiştir.
+                                                                        Bunun yerine 'color' değerinin ne olması gerektiği, şu şekilde belirlenmelidir:
+                                                                        Eğer sayici çiftse "royalblue", değilse "crimson" olmalıdır.
+                                                                      
+                                                                      ADIM 3:
+                                                                        JSX'teki bazı sabit kodlanmış bilgileri, kıvrımlı parantezler ({}) içinde enterpolasyonlu ifadelerle değiştirmemiz gerekiyor.
+                                                                        Sabit olarak yazılmış "0" sayısını {sayici} değişkeni ile değiştirerek başlayın.
+                                                                        Sonra "çift" kelimesini şu kurala göre değiştirin: {eğer sayıcı çiftse, kelime `çift` değilse `tek` olacak}.
+                                                                      
+                                                                      ADIM 4:
+                                                                        Bu click handler'ın, "sayici" stateini artı bir yapacak şekilde programlamak için "setSayici"i kullanması gerekiyor.
+                                                                        Bu state değişiklikleri senkronize değil: güncellenen sayım, Sayac bileşeninin bir sonraki çalıştırmasında da gelir.
+                                                                        Sakın basitçe sayici++ yapmayın. Artı artı yasak! Bu tarz artırım bir sonraki çağırımda gelmez. Her zaman state'e yeni değer 
+                                                                        atamak için state güncelleyici kullanmalısınız.
+                                                                      
+                                                                      ADIM 5:
+                                                                        Bu click handler 'sayici' yi bir azaltmak için 'setSayici' ı kulanacak.
+                                                                        sayici-- SAKIN kullanmayın. Bu tarz kullanım bir sonraki çalıştırmada gelmez.
+                                                                      
+                                                                      ADIM 6:
+                                                                      	Bu click handler 'sayici' yı sıfırlamak için 'setSayici' yi kullanacak.
+                                                                      */
 /* ADIM 0 buraya*/
 
 function Sayac() {
   /* ADIM 1 buraya*/
 
+  var _useState = (0, _react.useState)(0),
+    _useState2 = _slicedToArray(_useState, 2),
+    counter = _useState2[0],
+    setCounter = _useState2[1];
   var artirici = function artirici() {
     /* ADIM 4 buraya */
+    +counter, _readOnlyError("counter");
+    counter + 1, _readOnlyError("counter");
+    setCounter(counter);
   };
   var azaltici = function azaltici() {
     /* ADIM 5 */
+    setCounter(counter - 1);
   };
-  var reset = function reset() {};
+  var reset = function reset() {
+    setCounter(0);
+  };
   var stil = {
     fontSize: '1.5em',
     marginBottom: '0.3em',
@@ -28968,7 +28984,7 @@ function Sayac() {
   }, /*#__PURE__*/_react.default.createElement("h2", null, "Saya\xE7"), /*#__PURE__*/_react.default.createElement("div", {
     id: "sayici",
     style: stil
-  }, "Say\u0131 ", sayici, " "), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("button", {
+  }, "Say\u0131 ", sayici, " ", /* ADIM 3  buraya*/counter % 2 === 0 ? "cift" : "tek"), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("button", {
     id: "artirici",
     onClick: artirici
   }, "Art\u0131r\u0131c\u0131"), /*#__PURE__*/_react.default.createElement("button", {
@@ -28986,48 +29002,57 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = Input;
-var _react = _interopRequireDefault(require("react"));
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-/*
-INPUT Talimatlar
-
-Şu kısa videoyu izleyin:
-https://www.ergineer.com/assets/materials/a664dfe7-input.gif
-
-Bu INPUT'u oluşturmak için kaç adet state dilimine ihtiyacınız var? Başlamadan önce biraz üzerine düşünün!
-
-Evet sadece bir dilim yeterli! İçeride inputun değerini sürekli izleyeceğiz.
-Metnin royalblue veya crimson olacağı, input değerinin uzunluğundan elde edilebilir.
-
-ADIM 0:
-  Aşağıdaki bileşeni inceleyerek ve state hookunu import ederek başlayın.
-
-ADIM 1:
-  'inputDeğeri' ve 'setInputDeğeri' ikili state hookunu oluşturun.
-  Bu state boş bir string olarak yüklenecektir(initialize).
-
-ADIM 2:
-  'inputDeğeri' uzunluğu 10 karakteri geçerse renk crimson olacaktır.
-
-ADIM 3:
-  Bu <div /> içindeki inputa değer girildiğinde hepsini BÜYÜK HARFLERDE göstermesini nasıl sağlayabiliriz?
-
-ADIM 4:
-  Event nesnesinin içinde bulunan state'e input'un değerini atayın
-
-ADIM 5:
-  Input değerinin state'ını boşaltın. Reset hala çalışmıyor bir sonraki adımı inceleyin.
-
-ADIM 6:
-  Inputun başarılı bir şekilde resetlemesi için değerini state'ten almalıdır!
-  <input /> öğesine şu şekilde fazladan bir prop eklememiz gerekiyor: value={inputDeğeri}
-*/
-
+var _react = _interopRequireWildcard(require("react"));
+function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
+function _iterableToArrayLimit(arr, i) { var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"]; if (null != _i) { var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1; try { if (_x = (_i = _i.call(arr)).next, 0 === i) { if (Object(_i) !== _i) return; _n = !1; } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0); } catch (err) { _d = !0, _e = err; } finally { try { if (!_n && null != _i.return && (_r = _i.return(), Object(_r) !== _r)) return; } finally { if (_d) throw _e; } } return _arr; } }
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; } /*
+                                                                      INPUT Talimatlar
+                                                                      
+                                                                      Şu kısa videoyu izleyin:
+                                                                      https://www.ergineer.com/assets/materials/a664dfe7-input.gif
+                                                                      
+                                                                      Bu INPUT'u oluşturmak için kaç adet state dilimine ihtiyacınız var? Başlamadan önce biraz üzerine düşünün!
+                                                                      
+                                                                      Evet sadece bir dilim yeterli! İçeride inputun değerini sürekli izleyeceğiz.
+                                                                      Metnin royalblue veya crimson olacağı, input değerinin uzunluğundan elde edilebilir.
+                                                                      
+                                                                      ADIM 0:
+                                                                        Aşağıdaki bileşeni inceleyerek ve state hookunu import ederek başlayın.
+                                                                      
+                                                                      ADIM 1:
+                                                                        'inputDeğeri' ve 'setInputDeğeri' ikili state hookunu oluşturun.
+                                                                        Bu state boş bir string olarak yüklenecektir(initialize).
+                                                                      
+                                                                      ADIM 2:
+                                                                        'inputDeğeri' uzunluğu 10 karakteri geçerse renk crimson olacaktır.
+                                                                      
+                                                                      ADIM 3:
+                                                                        Bu <div /> içindeki inputa değer girildiğinde hepsini BÜYÜK HARFLERDE göstermesini nasıl sağlayabiliriz?
+                                                                      
+                                                                      ADIM 4:
+                                                                        Event nesnesinin içinde bulunan state'e input'un değerini atayın
+                                                                      
+                                                                      ADIM 5:
+                                                                        Input değerinin state'ını boşaltın. Reset hala çalışmıyor bir sonraki adımı inceleyin.
+                                                                      
+                                                                      ADIM 6:
+                                                                        Inputun başarılı bir şekilde resetlemesi için değerini state'ten almalıdır!
+                                                                        <input /> öğesine şu şekilde fazladan bir prop eklememiz gerekiyor: value={inputDeğeri}
+                                                                      */
 /* ADIM 0 */
 
 function Input() {
   /* ADIM 1 */
 
+  var _useState = (0, _react.useState)(""),
+    _useState2 = _slicedToArray(_useState, 2),
+    inputDeğeri = _useState2[0],
+    setInputDeğeri = _useState2[1];
   var inputuDeğiştir = function inputuDeğiştir(evt) {
     // When the input changes, its whole value can be found inside the event object.
     // Log out the synthetic event object 'evt' and see for yourself.
@@ -29066,37 +29091,42 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = RuhHalleri;
-var _react = _interopRequireDefault(require("react"));
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-/*
-RuhHalleri Talimatları
-
-Aşağıdaki kısa videoyu izleyin:
-https://www.ergineer.com/assets/materials/a664dfe7-ruhhalleri.gif
-
-Bu Sayacı oluşturmak için kaç adet state dilimine ihtiyacınız var? Başlamadan önce biraz üzerine düşünün!
-
-Bazıları 3 adet olduğunu söyleyecektir: her ruh hali için bir (mutlu, üzgün, ve bilinmeyen).
-Fakat tek bir state dilimi bu durumları saklamak için yeterlidir!
-
-ADIM 0:
-  Aşağıdaki bileşeni inceleyin ve state hook'u import edin.
-
-ADIM 1:
-  State hook'u kullanarak bir 'ruhHali' ve 'setRuhHali' oluşturun.
-  'ruhHali' state dilimi verilen 3 ruh halinden birisiyle yüklenecek.
-  Bu değişkenler zaten tanımlandı, bu uzun cümleleri bileşen içine tekrar yazmanıza gerek yok.
-
-ADIM 2:
-  Eğer state mutluysa rengi royalblue yapın, diğer durumlar için crimson yapın.
-
-ADIM 3:
-  JSX içinde sabit yazılmış ruh halini silip `ruhHali` state dilimine göre kıvrımlı parantezler içerisinde ekleyin.
-
-ADIM 4, 5, 6:
-  Click handler içinde `setRuhHali` ni kulanarak aşağıda tanımlanmış değişkenleri kullanarak ruhHali'ni güncelleyin
-*/
-
+var _react = _interopRequireWildcard(require("react"));
+function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
+function _iterableToArrayLimit(arr, i) { var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"]; if (null != _i) { var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1; try { if (_x = (_i = _i.call(arr)).next, 0 === i) { if (Object(_i) !== _i) return; _n = !1; } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0); } catch (err) { _d = !0, _e = err; } finally { try { if (!_n && null != _i.return && (_r = _i.return(), Object(_r) !== _r)) return; } finally { if (_d) throw _e; } } return _arr; } }
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; } /*
+                                                                      RuhHalleri Talimatları
+                                                                      
+                                                                      Aşağıdaki kısa videoyu izleyin:
+                                                                      https://www.ergineer.com/assets/materials/a664dfe7-ruhhalleri.gif
+                                                                      
+                                                                      Bu Sayacı oluşturmak için kaç adet state dilimine ihtiyacınız var? Başlamadan önce biraz üzerine düşünün!
+                                                                      
+                                                                      Bazıları 3 adet olduğunu söyleyecektir: her ruh hali için bir (mutlu, üzgün, ve bilinmeyen).
+                                                                      Fakat tek bir state dilimi bu durumları saklamak için yeterlidir!
+                                                                      
+                                                                      ADIM 0:
+                                                                        Aşağıdaki bileşeni inceleyin ve state hook'u import edin.
+                                                                      
+                                                                      ADIM 1:
+                                                                        State hook'u kullanarak bir 'ruhHali' ve 'setRuhHali' oluşturun.
+                                                                        'ruhHali' state dilimi verilen 3 ruh halinden birisiyle yüklenecek.
+                                                                        Bu değişkenler zaten tanımlandı, bu uzun cümleleri bileşen içine tekrar yazmanıza gerek yok.
+                                                                      
+                                                                      ADIM 2:
+                                                                        Eğer state mutluysa rengi royalblue yapın, diğer durumlar için crimson yapın.
+                                                                      
+                                                                      ADIM 3:
+                                                                        JSX içinde sabit yazılmış ruh halini silip `ruhHali` state dilimine göre kıvrımlı parantezler içerisinde ekleyin.
+                                                                      
+                                                                      ADIM 4, 5, 6:
+                                                                        Click handler içinde `setRuhHali` ni kulanarak aşağıda tanımlanmış değişkenleri kullanarak ruhHali'ni güncelleyin
+                                                                      */
 /* ADIM 0 */
 
 var ilkRuhHali = 'Nasıl hissettiğimi bilmiyorum :-|';
@@ -29105,14 +29135,18 @@ var uzgunRuhHali = 'Oldukça üzgün :(';
 function RuhHalleri() {
   /* ADIM 1 */
 
+  var _useState = (0, _react.useState)(ilkRuhHali),
+    _useState2 = _slicedToArray(_useState, 2),
+    ruhHali = _useState2[0],
+    setRuhHali = _useState2[1];
   var mutluEt = function mutluEt() {
-    /* ADIM 4 */
+    setRuhHali(mutluRuhHali);
   };
   var uZ = function uZ() {
-    /* ADIM 5 */
+    /* ADIM 5 */setRuhHali(uzgunRuhHali);
   };
   var reset = function reset() {
-    /* ADIM 6 */
+    /* ADIM 6 */setRuhHali(ilkRuhHali);
   };
   var stil = {
     fontSize: '1.5em',
@@ -29125,7 +29159,7 @@ function RuhHalleri() {
   }, /*#__PURE__*/_react.default.createElement("h2", null, "RuhHalleri"), /*#__PURE__*/_react.default.createElement("div", {
     id: "ruhHali",
     style: stil
-  }, "'Nas\u0131l hissetti\u011Fimi bilmiyorum :-|'"), " ", /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("button", {
+  }, ruhHali), " ", /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("button", {
     id: "mutluEt",
     onClick: mutluEt
   }, "Mutlu Et"), /*#__PURE__*/_react.default.createElement("button", {
@@ -29368,7 +29402,8 @@ var _Programcilar = _interopRequireDefault(require("./components/Programcilar"))
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 var container = document.getElementById("root");
 var root = (0, _client.createRoot)(container);
-root.render( /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_Sayac.default, null), /*#__PURE__*/_react.default.createElement(_RuhHalleri.default, null), /*#__PURE__*/_react.default.createElement(_Dondurucu.default, null), /*#__PURE__*/_react.default.createElement(_Input.default, null), /*#__PURE__*/_react.default.createElement(_Kareler.default, null), /*#__PURE__*/_react.default.createElement(_Programcilar.default, null)));
+root.render( /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_Sayac.default, null), /*#__PURE__*/_react.default.createElement(_RuhHalleri.default, null), /*#__PURE__*/_react.default.createElement(_Dondurucu.default, null), /*#__PURE__*/_react.default.createElement(_Input.default, null), /*#__PURE__*/_react.default.createElement(_Kareler.default, null), /*#__PURE__*/_react.default.createElement(_Programcilar.default, null), /*#__PURE__*/_react.default.createElement("h1", null, "Hello ")));
+/*#__PURE__*/_react.default.createElement("h1", null, "Hello ");
 },{"react":"../node_modules/react/index.js","react-dom/client":"../node_modules/react-dom/client.js","./components/Sayac":"components/Sayac.js","./components/Input":"components/Input.js","./components/RuhHalleri":"components/RuhHalleri.js","./components/Dondurucu":"components/Dondurucu.js","./components/Kareler":"components/Kareler.js","./components/Programcilar":"components/Programcilar.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -29394,7 +29429,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64069" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63391" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
